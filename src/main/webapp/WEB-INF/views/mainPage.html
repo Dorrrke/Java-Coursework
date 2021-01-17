@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ownre's table</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+    <div style="border: 2px solid #8F7F7E; width: 500px; border-radius: 20px;  margin-left: 37%; margin-top: 10%; padding: 15px; background-color: #708090">
+        <h2 style="font-family: 'Times New Roman'; "><i class="fas fa-user-friends"></i>Ownres</h2>
+        <br>
+        <table style="margin: 10px auto">
+            <tr style="background-color: #8F7F7E; border: 1px solid #2D3842">
+                <th>Login</th>
+                <th>Name</th>
+                <th>Company</th>
+            </tr>
+
+            <tr th:each = "owner : ${owner}" style="background-color: #708090; border: 1px solid #2D3842">
+                <td th:text="${owner.getLogin()}"><a/>...</td>
+                <td th:text="${owner.getName()}"><a/>...</td>
+                <td th:text="${owner.getCompany_name()}"><a/>...</td>
+                <td style="border-radius: 13px"><a style="
+                color: black;
+                font-family: 'Times New Roman';
+                font-weight: bold;
+                border: 2px solid deepskyblue;
+                border-radius: 13px;
+                width: 40px; height: 10px;
+                background-color: deepskyblue;
+                color: black; text-decoration: none;" th:href="@{/main/owner/{id}(id=${owner.getId()})}">Owner info</a></td>
+            </tr>
+        </table>
+        <p><a style="
+            font-family: 'Times New Roman';
+            margin-left: 5%;
+            font-weight: bold;
+            border: 2px solid #039CAD;
+            border-radius: 13px;
+            width: 40px; height: 10px;
+            background-color: #21E9FF;
+            color: black;
+            text-decoration: none;"
+              th:href="@{/main/add_owner}">Add owner</a>
+
+        </p>
+    </div>
+</body>
+</html>

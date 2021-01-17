@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add_owner</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+<form th:method="POST" th:action="@{/main}" th:object="${owner}">
+    <fieldset style="width: 100px; background-color: #708090; margin-left: 37%">
+        <legend>Add owner</legend>
+        <p><label for="login"><i class="fas fa-envelope"></i>Login</label><input type="text" th:field="*{login}" id="login"/></p>
+        <p><label for="pass"><i class="fas fa-lock"></i>Pass</label><input type="text" th:field="*{pass}" id="pass"/></p>
+        <p><label for="name"><i class="fas fa-user-check"></i>Name</label><input type="text" th:field="*{name}" id="name"/></p>
+        <p><label for="company"><i class="fas fa-building"></i>Company name</label><input type="text" th:field="*{company_name}" id="company"/></p>
+        <br/>
+        <p><input type="submit" value="Add" style="background-color: #21E9FF"></p>
+    </fieldset>
+</form>
+</body>
+</html>

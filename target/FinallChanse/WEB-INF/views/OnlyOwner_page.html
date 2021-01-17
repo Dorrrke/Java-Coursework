@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Owner info</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+<div style="border: 2px solid #8F7F7E; border-radius: 20px; width: 500px; padding: 15px; margin-left: 37%; margin-top: 10%; background-color: #708090">
+    <p><i class="fas fa-user-check"></i><b style="font-size: 20px">Name: </b><i style="font-size: 17px;font-family: 'Times New Roman'; font-weight: lighter" th:text="${owner.getName()}">VALUE</i></p>
+    <p><i class="fas fa-users"></i><b style="font-size: 20px">Quantity of workers: </b><i style="font-size: 17px;font-family: 'Times New Roman'; font-weight: lighter" th:text="${size}">...</i></p>
+
+    <table style="margin: 10px auto">
+        <tr style="background-color: #8F7F7E; border: 1px solid #2D3842">
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Company</th>
+        </tr>
+
+        <tr th:each = "worker : ${worker}" style="background-color: #708090; border: 1px solid #2D3842">
+            <td th:text="${worker.getName()}"><a/>...</td>
+            <td th:text="${worker.getPhone_number()}"><a/>...</td>
+            <td th:text="${owner.getCompany_name()}"><a>...</a></td>
+            <td style="border-radius: 13px"><a style="
+                color: black;
+                font-family: 'Times New Roman';
+                font-weight: bold;
+                border: 2px solid deepskyblue;
+                border-radius: 13px;
+                width: 40px; height: 10px;
+                background-color: deepskyblue;
+                color: black; text-decoration: none;"
+                                               th:href="@{/owner/worker/{id}(id=${worker.getId()})}">Worker info</a></td>
+        </tr>
+    </table>
+    <br>
+    <p><a style="
+        font-family: 'Times New Roman';
+        margin-left: 5%;
+        font-weight: bold;
+        border: 2px solid #039CAD;
+        border-radius: 13px;
+        width: 40px; height: 10px;
+        background-color: #21E9FF;
+        color: black; text-decoration: none;"
+          th:href="@{/owner/add_worker_O}">Add worker</a>
+    </p>
+</div>
+</body>
+</html>

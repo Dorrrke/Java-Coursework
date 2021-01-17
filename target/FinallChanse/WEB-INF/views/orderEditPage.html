@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>edit_order</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+<form th:method="POST" th:action="@{/main/owner/worker/order/edit_order}" th:object="${order}">
+    <fieldset style="width: 100px; background-color: #708090; margin-left: 37%">
+        <legend>Edit order</legend>
+        <input type="hidden" th:value="${order.getId()}" th:field="*{id}"></label>
+        <p><label for="name"><i class="fas fa-scroll"></i>Name</label><input type="text" th:value="${order.getName()}" th:field="*{name}" id="name"/></p>
+        <p><label for="price"><i class="fas fa-money-check-alt"></i>Price</label><input type="text" th:value="${order.getPrice()}" th:field="*{price}" id="price"/></p>
+        <p><label for="description"><i class="fas fa-audio-description"></i>Description</label><input type="text" th:value="${order.getDescription()}" th:field="*{description}" id="description" aria-rowcount="10"/></p>
+        <p><label for="ready"><i class="fas fa-clipboard-check"></i>Ready</label>
+            <select id="ready" th:field="*{ready}">
+                <option th:value="0" th:text="Non"></option>
+                <option th:value="1" th:text="Yes"></option>
+            </select></p>
+        <p><label for="Worker"><i class="fas fa-user-check"></i>Worker</label>
+            <select id="Worker" th:field="*{worker_name}">
+                <option th:each="worker : ${worker}"
+                        th:value="${worker.getId()}" th:text="${worker.getName()}">...</option>
+            </select></p>
+        <br/>
+        <p><input type="submit" value="Edit" style="background-color: #21E9FF"></p>
+    </fieldset>
+</form>
+</body>
+</html>

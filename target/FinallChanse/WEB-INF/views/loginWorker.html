@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>SingIn Owner</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+    <form th:method="POST" th:action="@{/worker}" th:object="${worker}">
+        <fieldset style="width: 100px; background-color: #708090; margin: 10px auto">
+            <legend>SingIn Worker</legend>
+            <p><label for="login"><i class="fas fa-sign-in-alt"></i>Login</label><input type="text" th:field="*{login}" id="login"/></p>
+            <p><label for="pass"><i class="fas fa-lock"></i>Password</label><input type="text" th:field="*{pass}" id="pass"/></p>
+            <p><input type="submit" value="LoginIn" style="background-color: #21E9FF"></p>
+        </fieldset>
+    </form>
+</body>
+</html>

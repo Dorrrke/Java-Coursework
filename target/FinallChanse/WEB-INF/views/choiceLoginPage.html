@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <div style="border: 2px solid #8F7F7E; width: 100px; border-radius: 20px;  margin: 10px auto; padding: 15px; background-color: #708090">
+        <form th:method="POST" th:action="@{/loginOwner}"><input type="submit" value="Owner" style="margin: 10px auto; background-color: #21E9FF"></form>
+        <form th:method="POST" th:action="@{/loginWorker}"><input type="submit" value="Worker" style="margin: 10px auto; background-color: #21E9FF"></form>
+        <form method="POST" th:action="@{/loginMain}"><input type="submit" value="Main company" style="margin: 10px auto; background-color: #21E9FF"></form>
+    </div>
+</body>
+</html>

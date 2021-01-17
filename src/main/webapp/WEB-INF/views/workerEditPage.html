@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>edit_worker</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+<form th:method="POST" th:action="@{/main/owner/worker/edit_worker}" th:object="${worker}">
+    <fieldset style="width: 100px; background-color: #708090; margin-left: 37%">
+        <legend>Edit worker</legend>
+        <input type="hidden" th:value="${worker.getId()}" th:field="*{id}"></label>
+        <p><label for="name"><i class="fas fa-scroll"></i>Name</label><input type="text" th:value="${worker.getName()}" th:field="*{name}" id="name"/></p>
+        <p><label for="login"><i class="fas fa-sign-in-alt"></i>Login</label><input type="text" th:value="${worker.getLogin()}" th:field="*{login}" id="login"/></p>
+        <p><label for="pass"><i class="fas fa-lock"></i>Pass</label><input type="text" th:value="${worker.getPass()}" th:field="*{pass}" id="pass"/></p>
+        <p><label for="phone"><i class="fas fa-phone"></i>Phone number</label><input type="text" th:value="${worker.getPhone_number()}" th:field="*{phone_number}" id="phone"/></p>
+        <p><label for="owner"><i class="fas fa-user-check"></i>Owner</label>
+            <select id="owner" th:field="*{employer}">
+                <option th:each="owner : ${owner}"
+                        th:value="${owner.getId()}" th:text="${owner.getName()}">...</option>
+            </select></p>
+        <br/>
+        <p><input type="submit" value="Edit" style="background-color: #21E9FF"></p>
+    </fieldset>
+</form>
+</body>
+</html>
